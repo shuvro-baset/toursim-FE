@@ -1,0 +1,23 @@
+.logo-text{
+    color: #7868E6;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 30px;
+}
+.menu-item{
+    text-decoration: none;
+    color: #7868E6;
+    padding: 6px 10px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+}
+.navBar{
+    box-shadow: 5px 5px 15px #B8B5FF;
+
+}
+.navBg{
+    background-color: #E4FBFF;
+}
