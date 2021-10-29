@@ -32,6 +32,10 @@ const ManageAllTours = () => {
                 });
         }
     }
+    // const handleStatus = id => {
+    //     const uri = `http://localhost:5000/update-status/${id}`;
+        
+    // }
     return (
         <Container>
             <Row className="my-5">
@@ -51,6 +55,7 @@ const ManageAllTours = () => {
                         <th>Price</th>
                         <th>Status</th>
                         <th></th>
+                        <th></th>
                     </tr>
 
                     { tours.map((tour, index) => 
@@ -67,6 +72,8 @@ const ManageAllTours = () => {
                             <th>{tour.tour.price}</th>
                             <th>{tour.tour.status}</th>
                             <th><button onClick={() => handleDeleteTour(tour._id)}>delete</button></th>
+                            {/* <th><button onClick={() => handleStatus(tour._id)}>delete</button></th> */}
+
                         </tr>                    
                     )
                     
