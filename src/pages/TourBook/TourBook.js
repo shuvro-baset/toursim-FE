@@ -8,19 +8,22 @@ const TourBook = () => {
     const {user} = useAuth();
     const {tourId} = useParams();
     const [tour, setTour] = useState([])
-    console.log(tourId)
+    console.log(user.displayName)
     
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = data => {
-        
+        data.userName = user.displayName;
+        data.email = user.email;
+        data.tour = tour;
+        data.tour.status = 'pending'
     console.log(data);
-    // axios.post('http://localhost:5000/add-tours', data)
-    //         .then(res => {
-    //             if (res.data.insertedId) {
-    //                 alert('added successfully');
-    //                 reset();
-    //             }
-    //         })
+    axios.post(`http://localhost:5000/tour-book/${tourId}`, data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    alert('added successfully');
+                    reset();
+                }
+            })
 }
 
     useEffect(() => {
@@ -42,17 +45,22 @@ const TourBook = () => {
                 </Col>
                 <Col md={6}>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                        <input {...register("name", { required: true })} placeholder="Name" />
-                        {errors.exampleRequired && <span>This field is required</span>}
+                    
+                    <h5>Billing Information</h5>
                         
-                        <textarea {...register("description")} placeholder="Description" />
-                        {errors.exampleRequired && <span>This field is required</span>}
-                        <input type="number" {...register("price", { required: true })} placeholder="Price" />
-                        {errors.exampleRequired && <span>This field is required</span>}
-                        <input type="number" {...register("duration", { required: true})} placeholder="days" />
-                        {errors.exampleRequired && <span>This field is required</span>}
-                        <input {...register("image", { required: true })} placeholder="image url" />
-                        {errors.exampleRequired && <span>This field is required</span>}
+                        
+                        <input  {...register("address", { required: true })} placeholder="address" />
+                        {errors.address && <span>This field is required</span>}
+                        <input type="number" {...register("mobile", { required: true, minLength:11})} placeholder="mobile" />
+                        {errors.mobile && <span>This field is required</span>}
+                        <input type="date" {...register("date", { required: true})} placeholder="mobile" />
+                        {errors.date && <span>This field is required</span>}
+                        <textarea {...register("message")} placeholder="Description" />
+                        {errors.message && <span>This field is required</span>}
+
+
+                       
+
                         <input type="submit" />
                     </form>
                 </Col>

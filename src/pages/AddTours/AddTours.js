@@ -23,16 +23,16 @@ const AddTours = () => {
                     <div>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <input {...register("name", { required: true })} placeholder="Name" />
-                        {errors.exampleRequired && <span>This field is required</span>}
+                        {errors.name && <span>This field is required</span>}
                         
                         <textarea {...register("description")} placeholder="Description" />
-                        {errors.exampleRequired && <span>This field is required</span>}
+                        {errors.description && <span>This field is required</span>}
                         <input type="number" {...register("price", { required: true })} placeholder="Price" />
-                        {errors.exampleRequired && <span>This field is required</span>}
+                        {errors.price && <span>This field is required</span>}
                         <input type="number" {...register("duration", { required: true})} placeholder="days" />
-                        {errors.exampleRequired && <span>This field is required</span>}
+                        {errors.duration && <span>This field is required</span>}
                         <input {...register("image", { required: true })} placeholder="image url" />
-                        {errors.exampleRequired && <span>This field is required</span>}
+                        {errors.image && <span>This field is required</span>}
                         <input type="submit" />
                     </form>
                     </div>

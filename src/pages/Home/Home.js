@@ -1,11 +1,17 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import Tour from '../../components/Tour/Tour';
+import useAuth from '../../hooks/useAuth';
 
 const Home = () => {
+    // destructuring user and isLoading info
+    const { user, isLoading } = useAuth();
     const [tours, setTours] = useState([])
+    
+
+    
 
     useEffect(() => {
         fetch('http://localhost:5000/home')
@@ -15,7 +21,11 @@ const Home = () => {
     return (
         <>
 
-            <Container>
+            <Container>{
+            isLoading && 
+                // showing spinner when reload page.
+                <Col className="d-flex justify-content-center align-items-center my-3" ><Spinner animation="border" variant="primary" /></Col>
+            }
             <Row><h3>home</h3></Row>
             <Row>
             {
