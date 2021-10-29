@@ -1,8 +1,9 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Tour.css'
 const Tour = (props) => {
-    const {name, description, price, days, image} = props.tour;
+    const {_id, name, description, price, days, image} = props.tour;
     return (
         <Col md={4}>
             <div className="tour-div">
@@ -11,7 +12,7 @@ const Tour = (props) => {
                 <p>{description.slice(0,100)}</p>
                 <p>{days} days</p>
                 <h6>price: {price}</h6>
-                <button>add booking</button>
+                <Link to={`/tour-book/${_id}`}><button>add booking</button></Link>
             </div>
         </Col>
     );

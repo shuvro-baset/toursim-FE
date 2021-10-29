@@ -10,6 +10,8 @@ import About from './pages/About/About';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ManageAllTours from './pages/ManageAllTours/ManageAllTours';
 import AddTours from './pages/AddTours/AddTours';
+import MyTours from './pages/MyTours/MyTours';
+import TourBook from './pages/TourBook/TourBook';
 function App() {
   return (
     <>
@@ -23,10 +25,15 @@ function App() {
           <Route path="/home">
             <Home></Home>
           </Route>
-          <PrivateRoute path="/about">
+          <Route path="/about">
             <About></About>
+          </Route>
+          <PrivateRoute path="/my-tours">
+            <MyTours></MyTours>
           </PrivateRoute>
-          
+          <PrivateRoute path="/tour-book/:tourId">
+            <TourBook></TourBook>
+          </PrivateRoute>
           <PrivateRoute path="/manage-all-tours">
             <ManageAllTours></ManageAllTours>
           </PrivateRoute>
