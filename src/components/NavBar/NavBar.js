@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Container, Nav, Navbar, Row } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
@@ -6,7 +7,15 @@ import './NavBar.css'
 const NavBar = () => {
     // destructuring user and logout info
     const {user, logout} = useAuth();
+    const [tourItem, setTourItem] = useState([])
 
+    useEffect(() => {
+        fetch('http://localhost:5000/my-tours')
+        .then(res => res.json())
+        .then(data => setTourItem(data))
+    }, [tourItem])
+    const myTour = tourItem.filter(tour => tour.email === user.email)
+    console.log(myTour);
     return (
         <> 
             <Container>
@@ -36,6 +45,7 @@ const NavBar = () => {
                         { user?.email &&
                             <small className="menu-item"><i className="fas fa-user"></i> {user.displayName || user.name} </small>
                         }
+                        <NavLink className="menu-item" to="/my-tour"><i className="fas fa-luggage-cart">{myTour.length || 0 }</i></NavLink>
                         { user?.email &&
                             <NavLink className="menu-item" onClick={logout} to="/home"><i className="fas fa-sign-out-alt"></i> LogOut</NavLink>
                         }

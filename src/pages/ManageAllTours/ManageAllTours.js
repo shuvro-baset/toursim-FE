@@ -11,8 +11,27 @@ const ManageAllTours = () => {
         fetch('http://localhost:5000/manage-all-tours')
         .then(res => res.json())
         .then(data => setTours(data))
-    }, [])
-    console.log(tours);
+    }, [tours])
+
+
+    // DELETE AN booking tour
+    const handleDeleteTour = id => {
+        const proceed = window.confirm('Are you sure, you want to delete?');
+        if (proceed) {
+            const url = `http://localhost:5000/my-tours/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        alert('deleted successfully');
+                        const remainingTours = tours.filter(user => tours._id !== id);
+                        setTours(remainingTours);
+                    }
+                });
+        }
+    }
     return (
         <Container>
             <Row className="my-5">
@@ -47,7 +66,7 @@ const ManageAllTours = () => {
                             <th>{tour.tour.duration} days</th>
                             <th>{tour.tour.price}</th>
                             <th>{tour.tour.status}</th>
-                            <th><button>delete</button></th>
+                            <th><button onClick={() => handleDeleteTour(tour._id)}>delete</button></th>
                         </tr>                    
                     )
                     

@@ -17,7 +17,7 @@ const MyTours = () => {
     const myTours = tours.filter(tours => tours.email === user.email)
 
 
-     // DELETE AN USER
+     // DELETE AN booking tour
      const handleDeleteTour = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
@@ -37,9 +37,13 @@ const MyTours = () => {
     }
     return (
         <Container>
+
+            <Row>
+                <h2>User Name: {user.displayName}</h2>
+                <h2>User Email: {user.email}</h2>
+
+            </Row>
             <Row className="my-5">
-
-
                 <Table>
                     { myTours.map(tour => 
                         <tr
@@ -48,10 +52,9 @@ const MyTours = () => {
                             <th>{tour.tour.name}</th>
                             <th>{tour.tour.price}</th>
                             <th>{tour.tour.duration}</th>
+                            <th>{tour.tour.status}</th>
                             <th><button onClick={() => handleDeleteTour(tour._id)}>delete</button></th>
                         </tr>
-                    
-                    
                     )
                     
                     }
