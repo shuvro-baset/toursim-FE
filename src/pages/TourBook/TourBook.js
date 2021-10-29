@@ -51,11 +51,14 @@ const TourBook = () => {
                         
                         <input  {...register("address", { required: true })} placeholder="address" />
                         {errors.address && <span>This field is required</span>}
+
                         <input type="number" {...register("mobile", { required: true, minLength:11})} placeholder="mobile" />
                         {errors.mobile && <span>This field is required</span>}
+
                         <input type="date" {...register("date", { required: true})} placeholder="mobile" />
                         {errors.date && <span>This field is required</span>}
-                        <textarea {...register("message")} placeholder="Description" />
+
+                        <textarea {...register("message")} placeholder="send a message" />
                         {errors.message && <span>This field is required</span>}
 
 

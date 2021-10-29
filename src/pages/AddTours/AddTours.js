@@ -27,10 +27,13 @@ const AddTours = () => {
                         
                         <textarea {...register("description")} placeholder="Description" />
                         {errors.description && <span>This field is required</span>}
+
                         <input type="number" {...register("price", { required: true })} placeholder="Price" />
                         {errors.price && <span>This field is required</span>}
+
                         <input type="number" {...register("duration", { required: true})} placeholder="days" />
                         {errors.duration && <span>This field is required</span>}
+                        
                         <input {...register("image", { required: true })} placeholder="image url" />
                         {errors.image && <span>This field is required</span>}
                         <input type="submit" />

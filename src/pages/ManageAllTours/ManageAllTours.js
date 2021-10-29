@@ -48,9 +48,7 @@ const ManageAllTours = () => {
                             <th>{tour.tour.price}</th>
                             <th>{tour.tour.status}</th>
                             <th><button>delete</button></th>
-                        </tr>
-                    
-                    
+                        </tr>                    
                     )
                     
                     }
