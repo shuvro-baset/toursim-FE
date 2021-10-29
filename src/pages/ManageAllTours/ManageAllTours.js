@@ -1,10 +1,62 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Container, Row, Table } from 'react-bootstrap';
+import useAuth from '../../hooks/useAuth';
 
 const ManageAllTours = () => {
+    const {user} = useAuth()
+    const [tours, setTours] = useState([])
+
+
+    useEffect(() => {
+        fetch('http://localhost:5000/manage-all-tours')
+        .then(res => res.json())
+        .then(data => setTours(data))
+    }, [])
+    console.log(tours);
     return (
-        <div>
-            <h2>All Tours.....</h2>
-        </div>
+        <Container>
+            <Row className="my-5">
+
+
+                <Table>
+
+                    <tr>
+                        <th>SL No.</th>
+                        <th>UserName</th>
+                        <th>User Address</th>
+                        <th>Mobile No</th>
+                        <th>Thumbnail</th>
+                        <th>Tour Name</th>
+                        <th>Tour Date</th>
+                        <th>Tour duration</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+
+                    { tours.map((tour, index) => 
+                        <tr
+                            key={ tour._id}>
+                            <th> {index+1} </th>
+                            <th>{tour.userName}</th>
+                            <th>{tour.address}</th>
+                            <th>{tour.mobile}</th>
+                            <th className="tour-img"><img className="img-fluid" src={tour.tour.image} alt="" /></th>
+                            <th>{tour.tour.name}</th>
+                            <th>{tour.date}</th>
+                            <th>{tour.tour.duration} days</th>
+                            <th>{tour.tour.price}</th>
+                            <th>{tour.tour.status}</th>
+                            <th><button>delete</button></th>
+                        </tr>
+                    
+                    
+                    )
+                    
+                    }
+                </Table> 
+            </Row>
+        </Container>
     );
 };
 
