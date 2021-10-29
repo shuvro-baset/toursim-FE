@@ -9,6 +9,7 @@ import NotFound from './pages/NotFound/NotFound'
 import About from './pages/About/About';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ManageAllTours from './pages/ManageAllTours/ManageAllTours';
+import AddTours from './pages/AddTours/AddTours';
 function App() {
   return (
     <>
@@ -28,6 +29,9 @@ function App() {
           
           <PrivateRoute path="/manage-all-tours">
             <ManageAllTours></ManageAllTours>
+          </PrivateRoute>
+          <PrivateRoute path="/add-tours">
+            <AddTours></AddTours>
           </PrivateRoute>
           <Route path="/login">
             <SignIn></SignIn>
