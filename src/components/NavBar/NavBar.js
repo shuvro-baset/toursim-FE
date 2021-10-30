@@ -36,7 +36,7 @@ const NavBar = () => {
             </Container>
             <Navbar sticky="top" className="navBar navBg" expand="lg">
                 <Container fluid>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" className="bg-light" />
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mx-auto">
                         <Link className="menu-item" to="/home">Home</Link>

@@ -1,0 +1,38 @@
+.banner-div{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.503), rgba(0, 0, 0, 0.516)), 
+                        url('https://images.pexels.com/photos/1457812/pexels-photo-1457812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 430px;
+    color: #fff;
+}
+.banner-div h2{
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 600;
+    font-size: 40px;
+}
+.brand-name{
+    color: #ff7c5b
+}
+
+.banner-div p{
+    font-family: 'Noto Serif Display', serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+.btn-travel{
+    background-color: #ff7c5b;
+    color: #fff;
+    padding: 8px 18px;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.btn-travel:hover{
+    background-color: transparent;
+    color: #fff;
+    padding: 8px 18px;
+    font-size: 18px;
+    border: 1px solid #ff7c5b;
+    border-radius: 20px;
+}

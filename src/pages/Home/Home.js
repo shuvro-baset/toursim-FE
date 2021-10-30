@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Col, Container, Row, Spinner } from 'react-bootstrap';
+import Banner from '../../components/Banner/Banner';
 import Tour from '../../components/Tour/Tour';
 import useAuth from '../../hooks/useAuth';
 
@@ -20,7 +21,7 @@ const Home = () => {
     }, [])
     return (
         <>
-
+            <Banner></Banner>
             <Container>{
             isLoading && 
                 // showing spinner when reload page.
