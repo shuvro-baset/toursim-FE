@@ -1,23 +1,28 @@
-.logo-text{
-    color: #7868E6;
-    text-transform: uppercase;
-    text-decoration: none;
-    text-align: center;
-    margin-left: 30px;
+.search-bar input{
+    outline: none;
+    border: 1px solid #412728;
+    padding: 8px;
+    border-radius: 20px;
+    width: 250px;
+}
+.extra-icon{
+    font-size: 24px;
+    color: #412728;
 }
 .menu-item{
     text-decoration: none;
-    color: #7868E6;
+    color: #ff7c5b;
     padding: 6px 10px;
     margin: 10px;
-    background-color: #fff;
     border-radius: 8px;
     font-family: 'Open Sans', sans-serif;
 }
+.menu-item:hover{
+    color: #fff;
+}
 .navBar{
-    box-shadow: 5px 5px 15px #B8B5FF;
-
+    box-shadow: 5px 5px 15px #ff7c5be7;
 }
 .navBg{
-    background-color: #E4FBFF;
+    background-color: #0d0e12;
 }

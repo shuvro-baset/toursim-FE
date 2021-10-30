@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Container, Nav, Navbar, Row } from 'react-bootstrap';
+import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './NavBar.css'
+import logo from '../../image/travency-logo.png';
+
 const NavBar = () => {
     // destructuring user and logout info
     const {user, logout} = useAuth();
@@ -19,8 +21,17 @@ const NavBar = () => {
     return (
         <> 
             <Container>
-                <Row>
-                    <h3>SP Travency</h3>
+                <Row className="d-flex justify-content-between align-items-center">
+                        <Col md={4} className="logo text-center">
+                            <img className="img-fluid" src={logo} alt="" />
+                        </Col>
+                        <Col md={4} className="search-bar text-center">
+                            <input type="text"/>
+                        </Col>
+                        <Col md={4} className="extra-icon text-center">
+                            <i className="far fa-heart mx-2"></i>
+                            <i className="far fa-question-circle mx-2"></i>
+                        </Col>
                 </Row>
             </Container>
             <Navbar sticky="top" className="navBar navBg" expand="lg">
