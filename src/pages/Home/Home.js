@@ -36,7 +36,8 @@ const Home = () => {
                 // showing spinner when reload page.
                 <Col className="d-flex justify-content-center align-items-center my-3" ><Spinner animation="border" variant="primary" /></Col>
             }
-            <Row><h3>home</h3></Row>
+            <Row>
+                <h1 className="text-center">Take a Tour</h1></Row>
             <Row>
             {
                 tours.map(tour => 
@@ -48,7 +49,6 @@ const Home = () => {
             }
             </Row>
             </Container>
-            
             <BeautifulPlaces></BeautifulPlaces>
             <TopReview></TopReview>
             

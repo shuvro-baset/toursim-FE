@@ -1,3 +1,13 @@
 .tour-div img{
     height: 200px;
 }
+.btn-booking{
+    background-color: #412728 ;
+    color: #fff;
+    padding: 8px 18px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+.btn-booking:hover{
+    color: #ff7c5b;
+}
