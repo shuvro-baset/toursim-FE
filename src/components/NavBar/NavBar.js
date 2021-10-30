@@ -56,7 +56,7 @@ const NavBar = () => {
                         { user?.email &&
                             <small className="menu-item"><i className="fas fa-user"></i> {user.displayName || user.name} </small>
                         }
-                        <NavLink className="menu-item" to="/my-tour"><i className="fas fa-luggage-cart">{myTour.length || 0 }</i></NavLink>
+                        <NavLink className="menu-item" to="/my-tour"><i className="fas fa-luggage-cart"> <span className="mx-2">{myTour.length || 0 }</span> </i></NavLink>
                         { user?.email &&
                             <NavLink className="menu-item" onClick={logout} to="/home"><i className="fas fa-sign-out-alt"></i> LogOut</NavLink>
                         }

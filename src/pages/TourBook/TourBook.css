@@ -1,0 +1,23 @@
+.form-info input{
+    width: 100%;
+    padding: 3px;
+    outline: none;
+    border: 1px solid #412728;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+.form-info textarea{
+    width: 100%;
+    outline: none;
+    border: 1px solid #412728;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+.info-head{
+    color: #412728;
+    font-size: 40px;
+    font-weight: 700;
+}
+.order-head{
+    color: #ff7c5b;
+}
