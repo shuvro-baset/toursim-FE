@@ -12,6 +12,7 @@ import ManageAllTours from './pages/ManageAllTours/ManageAllTours';
 import AddTours from './pages/AddTours/AddTours';
 import MyTours from './pages/MyTours/MyTours';
 import TourBook from './pages/TourBook/TourBook';
+import Footer from './components/Footer/Footer';
 function App() {
   return (
     <>
@@ -49,6 +50,7 @@ function App() {
             <NotFound></NotFound>
           </Route>
         </Switch>
+        <Footer></Footer>
       </Router>
       </AuthProvider>
     </>

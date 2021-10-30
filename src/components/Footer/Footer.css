@@ -1,0 +1,41 @@
+.footer-bg{
+    background-color: #412728;
+}
+.logo-text span{
+    color: #ff7c5b;
+}
+.quote{
+    color:rgb(0, 0, 0);
+}
+.right-arrow{
+    color: #ff7c5b;
+}
+.icon-font{
+    font-size: 30px;
+    color: #ff7c5b;
+}
+.social-icon{
+    font-size: 30px;
+    margin-right: 10px;
+    color:rgb(252, 252, 252);
+}
+.social-icon:hover{
+    color: #ff7c5b;
+}
+.contact-info{
+    background-color: transparent;
+    outline: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px; 
+    margin: 8px 0;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 0.5; /* Firefox */
+  }
+
+.copyright-text{
+    background-color: #0d0e12;
+    color: #fff;
+}

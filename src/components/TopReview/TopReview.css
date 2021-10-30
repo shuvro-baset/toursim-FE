@@ -1,0 +1,17 @@
+.user-icon{
+    font-size: 30px;
+    color: #412728;
+}
+.review h6{
+    color: #ff7c5b;
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 700;
+
+}
+.review p{
+    color: rgba(0, 0, 0, 0.75);
+
+}
+.star-icon i{
+    color: #ff7c5b
+}
