@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import Banner from '../../components/Banner/Banner';
 import Tour from '../../components/Tour/Tour';
+import TourTrip from '../../components/TourTrip/TourTrip';
 import TravelFilter from '../../components/TravelFilter/TravelFilter';
 import useAuth from '../../hooks/useAuth';
 
@@ -24,7 +25,11 @@ const Home = () => {
         <>
             <Banner></Banner>
             <TravelFilter></TravelFilter>
-            <Container>{
+            <TourTrip></TourTrip>
+
+            <Container>
+            
+            {
             isLoading && 
                 // showing spinner when reload page.
                 <Col className="d-flex justify-content-center align-items-center my-3" ><Spinner animation="border" variant="primary" /></Col>
