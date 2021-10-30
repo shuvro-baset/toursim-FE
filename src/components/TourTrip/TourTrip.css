@@ -1,7 +1,7 @@
 .parallax {
     /* The image used */
     background-image: linear-gradient(rgba(0, 0, 0, 0.503), rgba(0, 0, 0, 0.516)),
-                         url("https://images.pexels.com/photos/672358/pexels-photo-672358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+                         url("https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   
     /* Set a specific height */
     min-height: 400px; 

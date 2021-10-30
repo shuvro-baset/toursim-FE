@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import Banner from '../../components/Banner/Banner';
+import TopReview from '../../components/TopReview/TopReview';
 import Tour from '../../components/Tour/Tour';
 import TourTrip from '../../components/TourTrip/TourTrip';
 import TravelFilter from '../../components/TravelFilter/TravelFilter';
@@ -27,7 +28,7 @@ const Home = () => {
             <TravelFilter></TravelFilter>
             <TourTrip></TourTrip>
 
-            <Container>
+            <Container className="my-5">
             
             {
             isLoading && 
@@ -47,6 +48,8 @@ const Home = () => {
             </Row>
             </Container>
             
+
+            <TopReview></TopReview>
             
         
         </>
