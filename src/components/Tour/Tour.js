@@ -7,7 +7,7 @@ const Tour = (props) => {
     return (
         <Col md={4} className="my-3">
             <Card className="tour-div border-0">
-                <img className="img-fluid" src={image} alt="img not found" />
+                <img className="img-fluid rounded" src={image} alt="img not found" />
                 <Card.Body>
                     <h5>{name}</h5>
                     <p>{description.slice(0,100)}</p>

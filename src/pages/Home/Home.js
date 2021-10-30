@@ -9,15 +9,12 @@ import Tour from '../../components/Tour/Tour';
 import TourTrip from '../../components/TourTrip/TourTrip';
 import TravelFilter from '../../components/TravelFilter/TravelFilter';
 import useAuth from '../../hooks/useAuth';
-
+import './Home.css'
 const Home = () => {
     // destructuring user and isLoading info
     const { user, isLoading } = useAuth();
     const [tours, setTours] = useState([])
     
-
-    
-
     useEffect(() => {
         fetch('http://localhost:5000/home')
         .then(res => res.json())
@@ -37,7 +34,7 @@ const Home = () => {
                 <Col className="d-flex justify-content-center align-items-center my-3" ><Spinner animation="border" variant="primary" /></Col>
             }
             <Row>
-                <h1 className="text-center">Take a Tour</h1></Row>
+                <h1 className="text-center take-tour">Take a Tour</h1></Row>
             <Row>
             {
                 tours.map(tour => 
