@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
@@ -17,7 +16,7 @@ const NavBar = () => {
         .then(data => setTourItem(data))
     }, [tourItem])
     const myTour = tourItem.filter(tour => tour.email === user.email)
-    console.log(myTour);
+    // console.log(myTour);
     return (
         <> 
             <Container>

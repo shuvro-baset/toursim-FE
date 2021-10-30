@@ -18,7 +18,7 @@ const TourBook = () => {
         data.userName = user.displayName;
         data.email = user.email;
         data.tour = tour;
-        data.tour.status = 'pending'
+        data.status = 'pending'
     console.log(data);
     axios.post(`http://localhost:5000/tour-book/${tourId}`, data)
             .then(res => {
