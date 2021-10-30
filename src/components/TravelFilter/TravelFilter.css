@@ -1,0 +1,14 @@
+.filter-div{
+    background-color: #412728;
+    border-radius: 5px;
+}
+.filter-item{
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.027);
+}
+.filter-text{
+    font-size: 40px;
+    color: #412728;
+    font-weight: 700;
+}
