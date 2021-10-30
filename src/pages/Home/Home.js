@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import Banner from '../../components/Banner/Banner';
+import BeautifulPlaces from '../../components/BeautifulPlaces/BeautifulPlaces';
 import TopReview from '../../components/TopReview/TopReview';
 import Tour from '../../components/Tour/Tour';
 import TourTrip from '../../components/TourTrip/TourTrip';
@@ -48,7 +49,7 @@ const Home = () => {
             </Row>
             </Container>
             
-
+            <BeautifulPlaces></BeautifulPlaces>
             <TopReview></TopReview>
             
         

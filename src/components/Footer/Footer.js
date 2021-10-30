@@ -39,13 +39,12 @@ const Footer = () => {
 
                 <Col md={3}>
                     <div className="text-white p-3">
-                        <h4 className="mb-4">Services</h4>
-                        <p><i className="right-arrow fas fa-chevron-right mx-2"></i>Day Care</p>
-                        <p><i className="right-arrow fas fa-chevron-right mx-2"></i>Medicine Service</p>
-                        <p><i className="right-arrow fas fa-chevron-right mx-2"></i>Online Service</p>
-                        <p><i className="right-arrow fas fa-chevron-right mx-2"></i>Consultation Support</p>
-                        <p><i className="right-arrow fas fa-chevron-right mx-2"></i>Pediatric Nutrition</p>
-                        <p><i className="right-arrow fas fa-chevron-right mx-2"></i>Vaccination Camp</p>
+                        <h4 className="mb-4">Features</h4>
+                        <p><i className="right-arrow fas fa-chevron-right mx-2"></i>Popular Destinations</p>
+                        <p><i className="right-arrow fas fa-chevron-right mx-2"></i>List of Tours</p>
+                        <p><i className="right-arrow fas fa-chevron-right mx-2"></i>Gallery</p>
+                        <p><i className="right-arrow fas fa-chevron-right mx-2"></i>Travel on a Budget</p>
+                        <p><i className="right-arrow fas fa-chevron-right mx-2"></i>Travelling with Kids</p>
                     </div>
                 </Col>
             {/* footer part 4th column */}

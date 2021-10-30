@@ -1,0 +1,10 @@
+.btn-explore{
+    background-color: #412728;
+    color: #fff;
+    padding: 8px 18px;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.btn-explore:hover{
+    color: #ff7c5b;
+}
