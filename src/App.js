@@ -13,6 +13,7 @@ import AddTours from './pages/AddTours/AddTours';
 import MyTours from './pages/MyTours/MyTours';
 import TourBook from './pages/TourBook/TourBook';
 import Footer from './components/Footer/Footer';
+import Gallery from './pages/Gallery/Gallery';
 function App() {
   return (
     <>
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/home">
             <Home></Home>
+          </Route>
+          <Route path="/gallery">
+            <Gallery></Gallery>
           </Route>
           <Route path="/about">
             <About></About>

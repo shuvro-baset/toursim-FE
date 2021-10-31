@@ -44,7 +44,7 @@ const MyTours = () => {
 
             <Row>
                 <h2>Welcome to SP Travency, <span className="username">{user.displayName}</span> </h2>
-                <h2>Your Email address is - <span className="username">{user.email}</span> </h2>
+                <h2>Your Email address is - <small className="username">{user.email}</small> </h2>
 
             </Row>
             
