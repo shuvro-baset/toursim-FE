@@ -9,7 +9,7 @@ const Footer = () => {
                 <Col md={3}>
                     <div className="d-flex flex-column align-items-start p-3">
                         <h2 className="logo-text p-0 m-0 text-white mb-3"> SP <span>Travency</span> </h2>
-                        <p className="quote p-0 m-0">There’s a sunrise and a sunset every single day, and they’re absolutely free. Don’t miss so many of them</p>
+                        <p className="quote p-0 m-0 text-white">There’s a sunrise and a sunset every single day, and they’re absolutely free. Don’t miss so many of them</p>
                         <div className="mt-4 d-flex justify-content-evenly align-items-center text-white">
                             <i className="social-icon fab fa-facebook"></i>
                             <i className="social-icon fab fa-google"></i>
@@ -73,6 +73,7 @@ const Footer = () => {
                     </div>
                 </Col>
             </Row>
+            <hr />
             <Row>
                 <Col className="py-2 d-flex justify-content-center copyright-text">
                     <small> Design and Developed by <span>shuvro-baset</span> </small>

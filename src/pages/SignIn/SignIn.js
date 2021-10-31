@@ -4,6 +4,7 @@ import { useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './SignIn.css'
 const SignIn = () => {
+    
     // destructuring data from custom hooks.
     const {  setIsLoading, error, message, setUser, handleGoogleSignIn,  setMessage,setError } = useAuth()
     // use location state 

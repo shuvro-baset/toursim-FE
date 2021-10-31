@@ -3,21 +3,23 @@ import { Container, Row, Table } from 'react-bootstrap';
 
 const ManageAllTours = () => {
 
+    // set state for tours data
     const [tours, setTours] = useState([]);
 
+    // getting all tours data
     useEffect(() => {
-        fetch('https://sheltered-lake-01404.herokuapp.com/manage-all-tours')
+        fetch('http://localhost:5000/manage-all-tours')
         .then(res => res.json())
         .then(data => setTours(data))
     }, [])
 
     console.log("manage all tour: ", tours);
 
-    // DELETE AN booking tour
+    // DELETE  booking tour
     const handleDeleteTour = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `https://sheltered-lake-01404.herokuapp.com/my-tours/${id}`;
+            const url = `http://localhost:5000/my-tours/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -31,13 +33,15 @@ const ManageAllTours = () => {
             });
         }
     }
+
+    // update status
     const handleStatus = id => {
         console.log("I am hitting");
         const updateStatus = {
                 status: 'approved'
         }
 
-        const uri = `https://sheltered-lake-01404.herokuapp.com/update-status/${id}`;
+        const uri = `http://localhost:5000/update-status/${id}`;
         fetch(uri, {
             method: 'PUT',
             headers: {
@@ -49,7 +53,7 @@ const ManageAllTours = () => {
             .then(data => {
                 if (data.modifiedCount > 0) {
                     alert('Update Successful');
-                    fetch('https://sheltered-lake-01404.herokuapp.com/manage-all-tours')
+                    fetch('http://localhost:5000/manage-all-tours')
                         .then(res => res.json())
                         .then(data => setTours(data))
                 }
@@ -76,6 +80,9 @@ const ManageAllTours = () => {
                     </tr>
                     </thead>
                     <tbody>
+
+                    {/* mapping all tour data  */}
+                    
                     { tours.map((tour, index) => 
                         <tr
                             key={ tour._id}>

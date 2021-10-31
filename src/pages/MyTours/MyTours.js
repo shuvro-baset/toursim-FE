@@ -5,18 +5,23 @@ import useAuth from '../../hooks/useAuth'
 import './MyTour.css'
 
 const MyTours = () => {
+
+    // user data from useAuth
     const {user} = useAuth()
+    // set state for tours
     const [tours, setTours] = useState([])
 
+    // getting  tour data
     useEffect(() => {
         fetch('https://sheltered-lake-01404.herokuapp.com/my-tours')
         .then(res => res.json())
         .then(data => setTours(data))
     }, [])
+    // filtering my tour data
     const myTours = tours.filter(tours => tours.email === user.email)
     console.log("myTours page: ", tours);
 
-     // DELETE AN booking tour
+     // DELETE  booking tour
      const handleDeleteTour = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
@@ -43,6 +48,7 @@ const MyTours = () => {
 
             </Row>
             
+            {/* showing tour data */}
             
             {
                 myTours.map(tour => 

@@ -1,5 +1,5 @@
 .footer-bg{
-    background-color: #412728;
+    background-color: #0d0e12 ;
 }
 .logo-text span{
     color: #ff7c5b;
@@ -17,10 +17,10 @@
 .social-icon{
     font-size: 30px;
     margin-right: 10px;
-    color:rgb(252, 252, 252);
+    color: #ff7c5b;
 }
 .social-icon:hover{
-    color: #ff7c5b;
+    color: #fff;
 }
 .contact-info{
     background-color: transparent;
@@ -37,5 +37,5 @@
 
 .copyright-text{
     background-color: #0d0e12;
-    color: #fff;
+    color: #ff7c5ba1;
 }

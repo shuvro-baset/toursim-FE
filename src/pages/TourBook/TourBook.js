@@ -8,19 +8,25 @@ import './TourBook.css'
 
 
 const TourBook = () => {
+
+    // user data
     const {user} = useAuth();
+    // getting tour id 
     const {tourId} = useParams();
+    // set state for tour
     const [tour, setTour] = useState([])
     console.log(user.displayName)
-    
+    // form data
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+
     const onSubmit = data => {
         data.userName = user.displayName;
         data.email = user.email;
         data.tour = tour;
         data.status = 'pending'
     console.log(data);
-    axios.post(`https://sheltered-lake-01404.herokuapp.com/tour-book/${tourId}`, data)
+    // booking tour
+    axios.post(`http://localhost:5000/tour-book/${tourId}`, data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added successfully');
@@ -29,8 +35,9 @@ const TourBook = () => {
             })
 }
 
+    // getting single tour info
     useEffect(() => {
-        const uri = `https://sheltered-lake-01404.herokuapp.com/tour-book/${tourId}`
+        const uri = `http://localhost:5000/tour-book/${tourId}`
         fetch(uri)
         .then(res => res.json())
         .then(data => setTour(data))
