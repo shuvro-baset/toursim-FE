@@ -16,7 +16,8 @@ const Home = () => {
     const [tours, setTours] = useState([])
     
     useEffect(() => {
-        fetch('https://sheltered-lake-01404.herokuapp.com/home')
+        // fetch('https://sheltered-lake-01404.herokuapp.com/home')
+        fetch('http://localhost:5000/home')
         .then(res => res.json())
         .then(data => setTours(data))
     }, [])
