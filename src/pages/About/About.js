@@ -26,12 +26,30 @@ const About = () => {
                 </div>
             </Row>
             <Row>
-                <h2>Why SP Travency</h2>
-                <Col md={6}>
-                    <img src="" alt="" />
+                <h2 className="text-center">Why SP Travency</h2>
+                <Col md={6} className="my-3">
+                    <img className="img-fluid rounded" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" alt="" />
                 </Col>
-                <Col md={6}>
-                    <p></p>
+                <Col md={6} className="my-3 d-flex flex-column justify-content-center align-items-center">
+                    <h3>Research bot that works for you</h3>
+
+                    <p>We match your travel preferences with <br />
+                        over 2500 data points:
+                        <ul>
+                            <li>Best places & time to visit</li>
+                            <li>Reviews</li>
+                            <li>Transportation options</li>
+                            <li>Hidden gems</li>
+                        </ul>
+                    </p>
+
+                    
+                    <h3>Your complete plan in one place </h3>
+                        <ul>
+                            <li>Book & organize your reservations</li>
+                            <li>Share and collaborate with co-travelers</li>
+                            <li>Enjoy your trip!</li>
+                        </ul>
                 </Col>
             </Row>
         </Container>
