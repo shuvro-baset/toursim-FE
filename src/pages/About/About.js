@@ -11,7 +11,7 @@ const About = () => {
                     <h1>About SP Travency</h1>
                     <h3>We love to travel Bangladesh first and want you <br /> to have the trip of a lifetime!</h3>
 
-                    <button class="btn btn-booking">Book a tour</button>
+                    <button className="btn btn-booking">Book a tour</button>
                 </div>
             </Row>
             <Row className="my-5">
@@ -35,14 +35,13 @@ const About = () => {
 
                     <p>We match your travel preferences with <br />
                         over 2500 data points:
-                        <ul>
+                    </p>
+                    <ul>
                             <li>Best places & time to visit</li>
                             <li>Reviews</li>
                             <li>Transportation options</li>
                             <li>Hidden gems</li>
                         </ul>
-                    </p>
-
                     
                     <h3>Your complete plan in one place </h3>
                         <ul>

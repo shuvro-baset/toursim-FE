@@ -4,16 +4,16 @@ import useAuth from '../../hooks/useAuth';
 
 const ManageAllTours = () => {
 
-    const {user} = useAuth()
+    // const {user} = useAuth()
     const [tours, setTours] = useState([]);
-    
+
     useEffect(() => {
         fetch('http://localhost:5000/manage-all-tours')
         .then(res => res.json())
         .then(data => setTours(data))
-    }, [tours])
+    }, [])
 
-    console.log(tours);
+    console.log("manage all tour: ", tours);
 
     // DELETE AN booking tour
     const handleDeleteTour = id => {
@@ -27,7 +27,7 @@ const ManageAllTours = () => {
                 .then(data => {
                     if (data.deletedCount > 0) {
                         alert('deleted successfully');
-                        const remainingTours = tours.filter(user => tours._id !== id);
+                        const remainingTours = tours.filter(tour => tour._id !== id);
                         setTours(remainingTours);
                     }
                 });
@@ -51,14 +51,18 @@ const ManageAllTours = () => {
             .then(data => {
                 if (data.modifiedCount > 0) {
                     alert('Update Successful');
+                    fetch('http://localhost:5000/manage-all-tours')
+                        .then(res => res.json())
+                        .then(data => setTours(data))
                 }
+                
             })
         
     }
     return (
         <Container>
             <Row className="my-5">
-                <Table>
+                <Table responsive>
                     <thead>
                     <tr>
                         <th>SL No.</th>
@@ -70,9 +74,8 @@ const ManageAllTours = () => {
                         <th>Tour Date</th>
                         <th>Tour duration</th>
                         <th>Price</th>
+                        <th>Action</th>
                         <th>Status</th>
-                        <th></th>
-                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -88,9 +91,8 @@ const ManageAllTours = () => {
                             <th>{tour.date}</th>
                             <th>{tour.tour.duration} days</th>
                             <th>{tour.tour.price}</th>
-                            <th>{tour.status}</th>
                             <th><button onClick={() => handleDeleteTour(tour._id)}>delete</button></th>
-                            {/* <th><button onClick={() => handleStatus(tour._id)}>update status</button></th> */}
+                            <th><button onClick={() => handleStatus(tour._id)}>{tour.status === "Approved" ? "Approved" : tour.status}</button></th>
 
                         </tr>                    
                     )

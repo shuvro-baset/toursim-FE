@@ -8,15 +8,18 @@ import logo from '../../image/travency-logo.png';
 const NavBar = () => {
     // destructuring user and logout info
     const {user, logout} = useAuth();
-    const [tourItem, setTourItem] = useState([])
+    // const [tourItem, setTourItem] = useState([])
 
-    useEffect(() => {
-        fetch('http://localhost:5000/my-tours')
-        .then(res => res.json())
-        .then(data => setTourItem(data))
-    }, [])
-    const myTour = tourItem.filter(tour => tour.email === user.email)
-    console.log(myTour);
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/my-tours')
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         const myTour = data.filter(tour => tour.email === user.email)
+            
+    //         setTourItem(myTour)})
+    // }, [user.email])
+    
+    // console.log("from navbar: ", tourItem);
     return (
         <> 
             <Container>
@@ -39,9 +42,12 @@ const NavBar = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mx-auto">
                         <Link className="menu-item" to="/home">Home</Link>
-
-                        <Link className="menu-item" to="/my-tours">My Tours</Link> 
-                        <Link className="menu-item" to="/manage-all-tours">Manage Tours</Link>
+                        {user.email && 
+                            <Link className="menu-item" to="/my-tours">My Tours</Link> 
+                        }
+                        { user?.email && 
+                        <Link className="menu-item" to="/manage-all-tours">Manage Tours</Link> 
+                         }
                         { user?.email &&
                         <Link className="menu-item" to="/add-tours">Add Tours</Link>}
                         <Link className="menu-item" to="/about">About</Link>
@@ -55,7 +61,6 @@ const NavBar = () => {
                         { user?.email &&
                             <small className="menu-item"><i className="fas fa-user"></i> {user.displayName || user.name} </small>
                         }
-                        <NavLink className="menu-item" to="/my-tour"><i className="fas fa-luggage-cart"> <span className="mx-2">{myTour.length || 0 }</span> </i></NavLink>
                         { user?.email &&
                             <NavLink className="menu-item" onClick={logout} to="/home"><i className="fas fa-sign-out-alt"></i> LogOut</NavLink>
                         }
