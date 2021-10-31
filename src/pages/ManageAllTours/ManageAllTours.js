@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Table } from 'react-bootstrap';
+import './ManageAllTours.css'
 
 const ManageAllTours = () => {
 
@@ -64,38 +65,39 @@ const ManageAllTours = () => {
     return (
         <Container>
             <Row className="my-5">
+                <h2 className="text-center"> All Booking Tour List</h2>
+            </Row>
+            <Row className="my-2">
                 <Table responsive>
                     <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Mobile</th>
-                        <th>Thumbnail</th>
-                        <th>Tour Title</th>
-                        <th> Date</th>
-                        <th> duration</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                        <th>Status</th>
-                    </tr>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Mobile</th>
+                            <th>Thumbnail</th>
+                            <th>Tour Title</th>
+                            <th> Date</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                            <th>Status</th>
+                        </tr>
                     </thead>
                     <tbody>
 
                     {/* mapping all tour data  */}
                     
-                    { tours.map((tour, index) => 
-                        <tr
+                    { tours.map(tour => 
+                        <tr 
                             key={ tour._id}>
+                            <td>{tour.userName}</td>
                             <td>{tour.address}</td>
                             <td>{tour.mobile}</td>
-                            <td>{tour.userName}</td>
-                            <td className="tour-img"><img className="img-fluid" src={tour.tour.image} alt="" /></td>
+                            <td><img className="img-fluid rounded tour-img w-100" src={tour.tour.image} alt="" /></td>
                             <td>{tour.tour.name}</td>
                             <td>{tour.date}</td>
-                            <td>{tour.tour.duration} days</td>
                             <td>{tour.tour.price}</td>
-                            <td><button onClick={() => handleDeleteTour(tour._id)}>delete</button></td>
-                            <td><button onClick={() => handleStatus(tour._id)}>{tour.status === "Approved" ? "Approved" : tour.status}</button></td>
+                            <td><button className="btn btn-danger" onClick={() => handleDeleteTour(tour._id)}>delete</button></td>
+                            <td><button className="btn btn-warning" onClick={() => handleStatus(tour._id)}>{tour.status === "Approved" ? "Approved" : tour.status}</button></td>
 
                         </tr>                    
                     )

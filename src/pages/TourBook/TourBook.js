@@ -28,6 +28,7 @@ const TourBook = () => {
     // booking tour
     axios.post(`http://localhost:5000/tour-book/${tourId}`, data)
             .then(res => {
+
                 if (res.data.insertedId) {
                     alert('added successfully');
                     reset();
@@ -72,7 +73,7 @@ const TourBook = () => {
                                 {errors.address && <span>This field is required</span>}
 
                                 <label>Phone Number</label> <br />
-                                <input type="number" {...register("mobile", { required: true, minLength:11})}/> <br />
+                                <input type="number" {...register("mobile", { required: true, minLength:6, maxLength:11})}/> <br />
                                 {errors.mobile && <span>This field is required</span>}
 
                                 <label>Date</label> <br />
