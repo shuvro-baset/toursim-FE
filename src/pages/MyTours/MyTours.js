@@ -19,7 +19,6 @@ const MyTours = () => {
     }, [])
     // filtering my tour data
     const myTours = tours.filter(tours => tours.email === user.email)
-    console.log("myTours page: ", tours);
 
      // DELETE  booking tour
      const handleDeleteTour = id => {

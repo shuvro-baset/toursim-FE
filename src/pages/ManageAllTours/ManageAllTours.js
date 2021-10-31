@@ -14,7 +14,6 @@ const ManageAllTours = () => {
         .then(data => setTours(data))
     }, [])
 
-    console.log("manage all tour: ", tours);
 
     // DELETE  booking tour
     const handleDeleteTour = id => {
@@ -58,7 +57,6 @@ const ManageAllTours = () => {
                         .then(res => res.json())
                         .then(data => setTours(data))
                 }
-                
             })
         
     }

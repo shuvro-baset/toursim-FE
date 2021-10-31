@@ -50,8 +50,7 @@ const TourBook = () => {
                     reset();
                     history.push(redirect_uri);
                 }
-            })
-            
+            })  
 }
 
     
