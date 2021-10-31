@@ -13,9 +13,9 @@ const MyTours = () => {
         fetch('http://localhost:5000/my-tours')
         .then(res => res.json())
         .then(data => setTours(data))
-    }, [tours])
+    }, [])
     const myTours = tours.filter(tours => tours.email === user.email)
-
+    console.log(tours);
 
      // DELETE AN booking tour
      const handleDeleteTour = id => {

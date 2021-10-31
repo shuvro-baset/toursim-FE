@@ -5,13 +5,15 @@ import useAuth from '../../hooks/useAuth';
 const ManageAllTours = () => {
 
     const {user} = useAuth()
-    const [tours, setTours] = useState([])
+    const [tours, setTours] = useState([]);
+    
     useEffect(() => {
         fetch('http://localhost:5000/manage-all-tours')
         .then(res => res.json())
         .then(data => setTours(data))
     }, [tours])
 
+    console.log(tours);
 
     // DELETE AN booking tour
     const handleDeleteTour = id => {
@@ -56,10 +58,7 @@ const ManageAllTours = () => {
     return (
         <Container>
             <Row className="my-5">
-
-
                 <Table>
-
                     <thead>
                     <tr>
                         <th>SL No.</th>
@@ -91,7 +90,7 @@ const ManageAllTours = () => {
                             <th>{tour.tour.price}</th>
                             <th>{tour.status}</th>
                             <th><button onClick={() => handleDeleteTour(tour._id)}>delete</button></th>
-                            <th><button onClick={() => handleStatus(tour._id)}>update status</button></th>
+                            {/* <th><button onClick={() => handleStatus(tour._id)}>update status</button></th> */}
 
                         </tr>                    
                     )

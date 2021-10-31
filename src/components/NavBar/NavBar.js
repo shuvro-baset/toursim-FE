@@ -14,9 +14,9 @@ const NavBar = () => {
         fetch('http://localhost:5000/my-tours')
         .then(res => res.json())
         .then(data => setTourItem(data))
-    }, [tourItem])
+    }, [])
     const myTour = tourItem.filter(tour => tour.email === user.email)
-    // console.log(myTour);
+    console.log(myTour);
     return (
         <> 
             <Container>

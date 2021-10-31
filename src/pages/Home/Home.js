@@ -20,6 +20,7 @@ const Home = () => {
         .then(res => res.json())
         .then(data => setTours(data))
     }, [])
+    console.log(tours);
     return (
         <>
             <Banner></Banner>
