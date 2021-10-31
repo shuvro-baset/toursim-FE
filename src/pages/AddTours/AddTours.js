@@ -2,11 +2,20 @@ import axios from 'axios';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import { useHistory, useLocation } from 'react-router';
 
 const AddTours = () => {
     
     // react hook form
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+
+    // use location state 
+    const location = useLocation();
+    const history = useHistory();
+    // set redirect url
+    const redirect_uri = location.state?.from || '/home';
+
+
     const onSubmit = data => {
         
     console.log(data);
@@ -18,6 +27,8 @@ const AddTours = () => {
                 if (res.data.insertedId) {
                     alert('added successfully');
                     reset();
+                    history.push(redirect_uri);
+
                 }
             })
 }

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router';
+import { useHistory, useLocation, useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth'
 import './TourBook.css'
 
@@ -15,26 +15,17 @@ const TourBook = () => {
     const {tourId} = useParams();
     // set state for tour
     const [tour, setTour] = useState([])
-    console.log(user.displayName)
+
+    // use location state 
+    const location = useLocation();
+    const history = useHistory();
+    // set redirect url
+    const redirect_uri = location.state?.from || '/my-tours';
+
+
     // form data
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
-    const onSubmit = data => {
-        data.userName = user.displayName;
-        data.email = user.email;
-        data.tour = tour;
-        data.status = 'pending'
-    console.log(data);
-    // booking tour
-    axios.post(`http://localhost:5000/tour-book/${tourId}`, data)
-            .then(res => {
-
-                if (res.data.insertedId) {
-                    alert('added successfully');
-                    reset();
-                }
-            })
-}
 
     // getting single tour info
     useEffect(() => {
@@ -43,6 +34,27 @@ const TourBook = () => {
         .then(res => res.json())
         .then(data => setTour(data))
     }, [tourId])
+
+    
+    const onSubmit = data => {
+        data.userName = user.displayName;
+        data.email = user.email;
+        data.tour = tour;
+        data.status = 'pending';
+    // booking tour
+    axios.post(`http://localhost:5000/tour-book`, data)
+            .then(response => {
+                console.log("book tour: ", response);
+                if (response.data.acknowledged) {
+                    alert('added successfully');
+                    reset();
+                    history.push(redirect_uri);
+                }
+            })
+            
+}
+
+    
     return (
         <Container>
             <Row className="my-5">
