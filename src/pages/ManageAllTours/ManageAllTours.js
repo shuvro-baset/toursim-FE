@@ -71,10 +71,10 @@ const ManageAllTours = () => {
                 <Table responsive>
                     <thead>
                         <tr>
+                            <th>Thumbnail</th>
                             <th>Name</th>
                             <th>Address</th>
                             <th>Mobile</th>
-                            <th>Thumbnail</th>
                             <th>Tour Title</th>
                             <th> Date</th>
                             <th>Price</th>
@@ -89,10 +89,10 @@ const ManageAllTours = () => {
                     { tours.map(tour => 
                         <tr 
                             key={ tour._id}>
+                            <td><img className="img-fluid rounded tour-img w-100" src={tour.tour.image} alt="" /></td>
                             <td>{tour.userName}</td>
                             <td>{tour.address}</td>
                             <td>{tour.mobile}</td>
-                            <td><img className="img-fluid rounded tour-img w-100" src={tour.tour.image} alt="" /></td>
                             <td>{tour.tour.name}</td>
                             <td>{tour.date}</td>
                             <td>{tour.tour.price}</td>
