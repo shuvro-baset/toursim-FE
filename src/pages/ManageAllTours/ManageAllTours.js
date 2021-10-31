@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Table } from 'react-bootstrap';
-import useAuth from '../../hooks/useAuth';
 
 const ManageAllTours = () => {
 
-    // const {user} = useAuth()
     const [tours, setTours] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/manage-all-tours')
+        fetch('https://sheltered-lake-01404.herokuapp.com/manage-all-tours')
         .then(res => res.json())
         .then(data => setTours(data))
     }, [])
@@ -19,18 +17,18 @@ const ManageAllTours = () => {
     const handleDeleteTour = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/my-tours/${id}`;
+            const url = `https://sheltered-lake-01404.herokuapp.com/my-tours/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        alert('deleted successfully');
-                        const remainingTours = tours.filter(tour => tour._id !== id);
-                        setTours(remainingTours);
-                    }
-                });
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    alert('deleted successfully');
+                    const remainingTours = tours.filter(tour => tour._id !== id);
+                    setTours(remainingTours);
+                }
+            });
         }
     }
     const handleStatus = id => {
@@ -39,7 +37,7 @@ const ManageAllTours = () => {
                 status: 'approved'
         }
 
-        const uri = `http://localhost:5000/update-status/${id}`;
+        const uri = `https://sheltered-lake-01404.herokuapp.com/update-status/${id}`;
         fetch(uri, {
             method: 'PUT',
             headers: {
@@ -51,7 +49,7 @@ const ManageAllTours = () => {
             .then(data => {
                 if (data.modifiedCount > 0) {
                     alert('Update Successful');
-                    fetch('http://localhost:5000/manage-all-tours')
+                    fetch('https://sheltered-lake-01404.herokuapp.com/manage-all-tours')
                         .then(res => res.json())
                         .then(data => setTours(data))
                 }
@@ -65,14 +63,13 @@ const ManageAllTours = () => {
                 <Table responsive>
                     <thead>
                     <tr>
-                        <th>SL No.</th>
-                        <th>UserName</th>
-                        <th>User Address</th>
-                        <th>Mobile No</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Mobile</th>
                         <th>Thumbnail</th>
-                        <th>Tour Name</th>
-                        <th>Tour Date</th>
-                        <th>Tour duration</th>
+                        <th>Tour Title</th>
+                        <th> Date</th>
+                        <th> duration</th>
                         <th>Price</th>
                         <th>Action</th>
                         <th>Status</th>
@@ -82,17 +79,16 @@ const ManageAllTours = () => {
                     { tours.map((tour, index) => 
                         <tr
                             key={ tour._id}>
-                            <th> {index+1} </th>
-                            <th>{tour.userName}</th>
-                            <th>{tour.address}</th>
-                            <th>{tour.mobile}</th>
-                            <th className="tour-img"><img className="img-fluid" src={tour.tour.image} alt="" /></th>
-                            <th>{tour.tour.name}</th>
-                            <th>{tour.date}</th>
-                            <th>{tour.tour.duration} days</th>
-                            <th>{tour.tour.price}</th>
-                            <th><button onClick={() => handleDeleteTour(tour._id)}>delete</button></th>
-                            <th><button onClick={() => handleStatus(tour._id)}>{tour.status === "Approved" ? "Approved" : tour.status}</button></th>
+                            <td>{tour.address}</td>
+                            <td>{tour.mobile}</td>
+                            <td>{tour.userName}</td>
+                            <td className="tour-img"><img className="img-fluid" src={tour.tour.image} alt="" /></td>
+                            <td>{tour.tour.name}</td>
+                            <td>{tour.date}</td>
+                            <td>{tour.tour.duration} days</td>
+                            <td>{tour.tour.price}</td>
+                            <td><button onClick={() => handleDeleteTour(tour._id)}>delete</button></td>
+                            <td><button onClick={() => handleStatus(tour._id)}>{tour.status === "Approved" ? "Approved" : tour.status}</button></td>
 
                         </tr>                    
                     )

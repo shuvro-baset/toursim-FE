@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react'
-import { Col, Container, Row, Table } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth'
 import './MyTour.css'
 
@@ -9,7 +9,7 @@ const MyTours = () => {
     const [tours, setTours] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/my-tours')
+        fetch('https://sheltered-lake-01404.herokuapp.com/my-tours')
         .then(res => res.json())
         .then(data => setTours(data))
     }, [])
@@ -20,7 +20,7 @@ const MyTours = () => {
      const handleDeleteTour = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/my-tours/${id}`;
+            const url = `https://sheltered-lake-01404.herokuapp.com/my-tours/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -42,26 +42,7 @@ const MyTours = () => {
                 <h2>Your Email address is - <span className="username">{user.email}</span> </h2>
 
             </Row>
-            <Row className="my-5 bg-dark text-white py-2 rounded">
-                <Col md={2} className="text-center">
-                    <h6>Thumbnail</h6>
-                </Col>
-                <Col md={2} className="text-center">
-                    <h6>Title</h6>
-                </Col>
-                <Col md={2} className="text-center">
-                    <h6>Price</h6>
-                </Col>
-                <Col md={2} className="text-center">
-                    <h6>Duration</h6>
-                </Col>
-                <Col md={2} className="text-center">
-                    <h6>Status</h6>
-                </Col>
-                <Col md={2} className="text-center">
-                    
-                </Col>
-            </Row>
+            
             
             {
                 myTours.map(tour => 
@@ -70,19 +51,19 @@ const MyTours = () => {
                         <Col md={2} className="text-center">
                             <img className="img-fluid rounded" src={tour.tour.image} alt="" />
                         </Col>
-                        <Col md={2} className="text-center">
+                        <Col md={2} className="text-center d-flex flex-column justify-content-center align-items-center">
                             <h4>{tour.tour.name}</h4>
                         </Col>
-                        <Col md={2} className="text-center">
+                        <Col md={2} className="text-center d-flex flex-column justify-content-center align-items-center">
                             <p>{tour.tour.price}</p>
                         </Col>
-                        <Col md={2} className="text-center">
-                            <p>{tour.tour.duration}</p>
+                        <Col md={2} className="text-center d-flex flex-column justify-content-center align-items-center">
+                            <p>{tour.tour.duration} Days trip</p>
                         </Col>
-                        <Col md={2} className="text-center">
+                        <Col md={2} className="text-center d-flex flex-column justify-content-center align-items-center">
                             <p>{tour.status}</p>
                         </Col>
-                        <Col md={2} className="text-center">
+                        <Col md={2} className="text-center d-flex flex-column justify-content-center align-items-center">
                             <button className="btn btn-danger" onClick={() => handleDeleteTour(tour._id)}>delete</button>
                         </Col>
                     </Row>

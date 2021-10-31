@@ -20,7 +20,7 @@ const TourBook = () => {
         data.tour = tour;
         data.status = 'pending'
     console.log(data);
-    axios.post(`http://localhost:5000/tour-book/${tourId}`, data)
+    axios.post(`https://sheltered-lake-01404.herokuapp.com/${tourId}`, data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added successfully');
@@ -30,7 +30,7 @@ const TourBook = () => {
 }
 
     useEffect(() => {
-        const uri = `http://localhost:5000/tour-book/${tourId}`
+        const uri = `https://sheltered-lake-01404.herokuapp.com/${tourId}`
         fetch(uri)
         .then(res => res.json())
         .then(data => setTour(data))
