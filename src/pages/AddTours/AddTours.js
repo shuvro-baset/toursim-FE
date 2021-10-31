@@ -19,10 +19,9 @@ const AddTours = () => {
     const onSubmit = data => {
         
     console.log(data);
-    // const localUri = 'https://sheltered-lake-01404.herokuapp.com/add-tours'
     
     // POST method for adding new tour
-    axios.post('http://localhost:5000/add-tours', data)
+    axios.post('https://sheltered-lake-01404.herokuapp.com/add-tours', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added successfully');

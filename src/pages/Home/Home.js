@@ -18,12 +18,10 @@ const Home = () => {
     
     // getting tours information
     useEffect(() => {
-        // fetch('https://sheltered-lake-01404.herokuapp.com/home')
-        fetch('http://localhost:5000/home')
+        fetch('https://sheltered-lake-01404.herokuapp.com/home')
         .then(res => res.json())
         .then(data => setTours(data))
     }, [])
-    console.log(tours);
     return (
         <>
             {/* banner components */}

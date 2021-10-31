@@ -9,7 +9,7 @@ const ManageAllTours = () => {
 
     // getting all tours data
     useEffect(() => {
-        fetch('http://localhost:5000/manage-all-tours')
+        fetch('https://sheltered-lake-01404.herokuapp.com/manage-all-tours')
         .then(res => res.json())
         .then(data => setTours(data))
     }, [])
@@ -20,7 +20,7 @@ const ManageAllTours = () => {
     const handleDeleteTour = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/my-tours/${id}`;
+            const url = `https://sheltered-lake-01404.herokuapp.com/my-tours/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -42,7 +42,7 @@ const ManageAllTours = () => {
                 status: 'approved'
         }
 
-        const uri = `http://localhost:5000/update-status/${id}`;
+        const uri = `https://sheltered-lake-01404.herokuapp.com/update-status/${id}`;
         fetch(uri, {
             method: 'PUT',
             headers: {
@@ -54,7 +54,7 @@ const ManageAllTours = () => {
             .then(data => {
                 if (data.modifiedCount > 0) {
                     alert('Update Successful');
-                    fetch('http://localhost:5000/manage-all-tours')
+                    fetch('https://sheltered-lake-01404.herokuapp.com/manage-all-tours')
                         .then(res => res.json())
                         .then(data => setTours(data))
                 }
@@ -70,7 +70,7 @@ const ManageAllTours = () => {
             <Row className="my-2">
                 <Table responsive>
                     <thead>
-                        <tr>
+                        <tr className="bg-dark text-white">
                             <th>Thumbnail</th>
                             <th>Name</th>
                             <th>Address</th>
@@ -87,7 +87,7 @@ const ManageAllTours = () => {
                     {/* mapping all tour data  */}
                     
                     { tours.map(tour => 
-                        <tr 
+                        <tr
                             key={ tour._id}>
                             <td><img className="img-fluid rounded tour-img w-100" src={tour.tour.image} alt="" /></td>
                             <td>{tour.userName}</td>
